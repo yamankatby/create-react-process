@@ -18,5 +18,10 @@
 
     <actions>
         <!-- Add your actions here -->
+        <group id="MyPlugin.SampleMenu" text="React" description="Greeting menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="com.swazerlab.create-react-process" class="CreateProcessAction" text="Create New Process"
+                    description="Create new React process"/>
+        </group>
     </actions>
 </idea-plugin>
