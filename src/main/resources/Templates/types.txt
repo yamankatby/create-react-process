@@ -1,0 +1,11 @@
+import { AppAction, AppResultAction } from '../../../config/types';
+
+export enum ActionTypes {
+	clear_$process_name$ = '$PROCESS_NAME$__CLEAR_$PROCESS_NAME$',
+}
+
+export type Action = AppAction | AppResultAction;
+
+export interface State {
+
+}

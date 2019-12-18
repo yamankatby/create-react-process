@@ -1,0 +1,17 @@
+import { Reducer } from 'redux';
+import { Action, ActionTypes, State } from './types';
+
+const initialState: State = {};
+
+const $processName$: Reducer<State, Action> = (state = initialState, action) => {
+	switch (action.type) {
+		case ActionTypes.clear_$process_name$:
+			return {
+				...initialState,
+			};
+		default:
+			return state;
+	}
+};
+
+export default $processName$;

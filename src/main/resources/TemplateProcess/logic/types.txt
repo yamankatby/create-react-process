@@ -1,9 +1,0 @@
-export enum ActionTypes {
-
-}
-
-export type Action = '';
-
-export interface State {
-
-}
