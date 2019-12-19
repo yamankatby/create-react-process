@@ -2,20 +2,12 @@ import java.io.IOException;
 
 public class Process {
 
-    private String path;
-    private String name;
-
-    protected Process(String path, String name) {
-        this.path = path;
-        this.name = name;
-    }
-
-    public void create() throws IOException {
-        ProcessName processName = new ProcessName(path, name);
-        new ProcessFile(processName, processName.viewPath, "view").createIfNotExist();
-        new ProcessFile(processName, processName.typesPath, "types").createIfNotExist();
-        new ProcessFile(processName, processName.actionsPath, "actions").createIfNotExist();
-        new ProcessFile(processName, processName.reducersPath, "reducers").createIfNotExist();
-        new ProcessFile(processName, processName.sagasPath, "sagas").createIfNotExist();
+    public static void createIfNotExist(String rootPath, String name, boolean view, boolean types, boolean actions, boolean reducers, boolean sagas) throws IOException {
+        ProcessName processName = new ProcessName(rootPath, name);
+        if (view) ProcessFile.createIfNotExist(processName, processName.viewPath, "view");
+        if (types) ProcessFile.createIfNotExist(processName, processName.typesPath, "types");
+        if (actions) ProcessFile.createIfNotExist(processName, processName.actionsPath, "actions");
+        if (reducers) ProcessFile.createIfNotExist(processName, processName.reducersPath, "reducers");
+        if (sagas) ProcessFile.createIfNotExist(processName, processName.sagasPath, "sagas");
     }
 }

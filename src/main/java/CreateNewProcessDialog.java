@@ -5,15 +5,23 @@ import com.intellij.openapi.ui.DialogWrapper;
 import javax.swing.*;
 
 public class CreateNewProcessDialog {
-    public JPanel jDialogPanel;
-    public JTextField jProcessName;
+    public String[] names;
+    public boolean[] views;
+    public boolean[] types;
+    public boolean[] actions;
+    public boolean[] reducers;
+    public boolean[] sagas;
+
+    public JPanel dialogPanel;
+    public JTextField processName;
 
     private JComponent buildUI() {
-        jDialogPanel = new DialogPanel();
-        jProcessName = new JTextField();
+        dialogPanel = new DialogPanel();
 
-        jDialogPanel.add(jProcessName);
-        return jDialogPanel;
+        processName = new JTextField();
+
+        dialogPanel.add(processName);
+        return dialogPanel;
     }
 
 

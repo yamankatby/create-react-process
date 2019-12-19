@@ -23,7 +23,7 @@ public class ProcessName {
     public String reducersPath;
     public String sagasPath;
 
-    protected ProcessName(String rootPath, @NotNull String processName) {
+    protected ProcessName(@NotNull String rootPath, @NotNull String processName) {
         this.rootPath = rootPath;
         this.processName = processName;
 
@@ -34,7 +34,7 @@ public class ProcessName {
         snakeAllCapsCase = snakeCase.toUpperCase();
         kebabCase = raw.toLowerCase().replace(" ", "-");
 
-        processRootPath = rootPath.concat("/src/processes/").concat(this.pascalCase);
+        processRootPath = rootPath.concat("/src/processes/").concat(this.camelCase);
         viewsRootPath = processRootPath.concat("/views");
         logicRootPath = processRootPath.concat("/logic");
 

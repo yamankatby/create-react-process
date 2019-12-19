@@ -18,11 +18,12 @@ public class CreateProcessAction extends AnAction {
         if (!isOk) return;
 
         String rootPath = ModuleRootManager.getInstance(ModuleManager.getInstance(project).getModules()[0]).getContentRoots()[0].getPath();
-        String processName = createNewProcessDialog.jProcessName.getText();
+        String userInput = createNewProcessDialog.processName.getText();
 
-        Process process = new Process(rootPath, processName);
         try {
-            process.create();
+            for (String processName : userInput.split(",")) {
+                Process.createIfNotExist(rootPath, processName, true, true, true, true, true);
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
         }

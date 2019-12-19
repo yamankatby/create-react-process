@@ -5,7 +5,7 @@ interface Props {
 }
 
 const $ProcessName$ = (props: Props) => {
-	return <h4>Hi, $Process Name$ component!</h4>;
+	return <h4>Hi, $ProcessName$ component!</h4>;
 };
 
 export default $ProcessName$;
