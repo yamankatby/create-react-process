@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c0f5706-c6be-495e-9762-a4e665c56861" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateNewProcessDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcessAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcessAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ProcessFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ProcessName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ProcessFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ProcessName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,22 +127,22 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="888" y="268" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576668318918" />
-    <state width="2560" height="136" key="GridCell.Tab.0.bottom" timestamp="1576744685036">
+    <state width="2560" height="136" key="GridCell.Tab.0.bottom" timestamp="1576751184922">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685036" />
-    <state width="2560" height="136" key="GridCell.Tab.0.center" timestamp="1576744685035">
+    <state width="2560" height="136" key="GridCell.Tab.0.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576751184922" />
+    <state width="2560" height="136" key="GridCell.Tab.0.center" timestamp="1576751184921">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685035" />
-    <state width="2560" height="136" key="GridCell.Tab.0.left" timestamp="1576744685035">
+    <state width="2560" height="136" key="GridCell.Tab.0.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576751184921" />
+    <state width="2560" height="136" key="GridCell.Tab.0.left" timestamp="1576751184920">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685035" />
-    <state width="2560" height="136" key="GridCell.Tab.0.right" timestamp="1576744685036">
+    <state width="2560" height="136" key="GridCell.Tab.0.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576751184920" />
+    <state width="2560" height="136" key="GridCell.Tab.0.right" timestamp="1576751184921">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685036" />
+    <state width="2560" height="136" key="GridCell.Tab.0.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576751184921" />
     <state width="2560" height="510" key="GridCell.Tab.1.bottom" timestamp="1576744531507">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>

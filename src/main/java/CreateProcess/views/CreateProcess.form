@@ -6,8 +6,9 @@
       <xy x="48" y="54" width="640" height="400"/>
     </constraints>
     <properties>
-      <minimumSize width="640" height="400"/>
-      <preferredSize width="640" height="400"/>
+      <minimumSize width="640" height="190"/>
+      <nextFocusableComponent value="d174"/>
+      <preferredSize width="640" height="190"/>
     </properties>
     <border type="none"/>
     <children>
