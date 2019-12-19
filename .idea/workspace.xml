@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c0f5706-c6be-495e-9762-a4e665c56861" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateNewProcessDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateNewProcessDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateNewProcessDialog.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcessAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcessAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProcessFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProcessName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Templates/view.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Templates/view.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ProcessFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ProcessName.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="873" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -128,45 +129,52 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="888" y="268" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576668318918" />
-    <state width="2560" height="415" key="GridCell.Tab.0.bottom" timestamp="1576734726149">
+    <state width="2560" height="136" key="GridCell.Tab.0.bottom" timestamp="1576744685036">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="415" key="GridCell.Tab.0.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576734726149" />
-    <state width="2560" height="415" key="GridCell.Tab.0.center" timestamp="1576734726148">
+    <state width="2560" height="136" key="GridCell.Tab.0.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685036" />
+    <state width="2560" height="136" key="GridCell.Tab.0.center" timestamp="1576744685035">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="415" key="GridCell.Tab.0.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576734726148" />
-    <state width="2560" height="415" key="GridCell.Tab.0.left" timestamp="1576734726147">
+    <state width="2560" height="136" key="GridCell.Tab.0.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685035" />
+    <state width="2560" height="136" key="GridCell.Tab.0.left" timestamp="1576744685035">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="415" key="GridCell.Tab.0.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576734726147" />
-    <state width="2560" height="415" key="GridCell.Tab.0.right" timestamp="1576734726149">
+    <state width="2560" height="136" key="GridCell.Tab.0.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685035" />
+    <state width="2560" height="136" key="GridCell.Tab.0.right" timestamp="1576744685036">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="415" key="GridCell.Tab.0.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576734726149" />
-    <state width="2560" height="510" key="GridCell.Tab.1.bottom" timestamp="1576672902801">
+    <state width="2560" height="136" key="GridCell.Tab.0.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744685036" />
+    <state width="2560" height="510" key="GridCell.Tab.1.bottom" timestamp="1576744531507">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="510" key="GridCell.Tab.1.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576672902801" />
-    <state width="2560" height="510" key="GridCell.Tab.1.center" timestamp="1576672902800">
+    <state width="2560" height="510" key="GridCell.Tab.1.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744531507" />
+    <state width="2560" height="510" key="GridCell.Tab.1.center" timestamp="1576744531506">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="510" key="GridCell.Tab.1.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576672902800" />
-    <state width="2560" height="510" key="GridCell.Tab.1.left" timestamp="1576672902800">
+    <state width="2560" height="510" key="GridCell.Tab.1.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744531506" />
+    <state width="2560" height="510" key="GridCell.Tab.1.left" timestamp="1576744531506">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="510" key="GridCell.Tab.1.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576672902800" />
-    <state width="2560" height="510" key="GridCell.Tab.1.right" timestamp="1576672902800">
+    <state width="2560" height="510" key="GridCell.Tab.1.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744531506" />
+    <state width="2560" height="510" key="GridCell.Tab.1.right" timestamp="1576744531506">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="510" key="GridCell.Tab.1.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576672902800" />
+    <state width="2560" height="510" key="GridCell.Tab.1.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576744531506" />
     <state x="789" y="370" key="SettingsEditor" timestamp="1576648083586">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="789" y="370" key="SettingsEditor/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576648083586" />
+    <state x="1160" y="533" width="688" height="525" key="UIDesigner.ListEditorDialog" timestamp="1576737352599">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1160" y="533" width="688" height="525" key="UIDesigner.ListEditorDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576737352599" />
     <state x="945" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1576585641713">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="945" y="348" width="670" height="676" key="search.everywhere.popup/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576585641713" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/create_react_process$Plugin.ic" NAME="Plugin Coverage Results" MODIFIED="1576736136599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
