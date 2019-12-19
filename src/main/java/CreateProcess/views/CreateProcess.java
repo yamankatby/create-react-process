@@ -40,10 +40,16 @@ public class CreateProcess extends JDialog {
     }
 
     private void onOK() {
-        String[] names = processesNames.getText().split("\\s*[,;]\\s*");
+        String processesNamesText = processesNames.getText();
+        if (processesNamesText.equals("")) {
+            processesNames.requestFocus();
+            return;
+        }
+
+        String[] names = processesNamesText.split("\\s*[,;]\\s*");
         for (String name : names) {
             try {
-                new Process(rootPath, name).createIfNotExist(true, true, true, true, true);
+                Process.createIfNotExist(rootPath, name);
             } catch (IOException e) {
                 e.printStackTrace();
             }

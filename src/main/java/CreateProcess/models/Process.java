@@ -11,15 +11,18 @@ public class Process {
 
     public String rootPath;
     public String processName;
+
     public String raw;
     public String pascalCase;
     public String camelCase;
     public String snakeCase;
     public String snakeAllCapsCase;
     public String kebabCase;
+
     public String processRootPath;
     public String viewsRootPath;
     public String logicRootPath;
+
     public String viewPath;
     public String typesPath;
     public String actionsPath;
@@ -30,28 +33,22 @@ public class Process {
         this.rootPath = rootPath;
         this.processName = processName;
 
-        raw = WordUtils.capitalize(processName.replaceAll("\\s+", " ").replace(".", " ").replace("-", " ").replace("_", " ").toLowerCase());
-        pascalCase = raw.replace(" ", "");
+        raw = WordUtils.capitalizeFully(processName.replaceAll("[^A-Za-z0-9]+", " "));
+        pascalCase = raw.replaceAll("\\s", "");
         camelCase = Character.toLowerCase(pascalCase.charAt(0)) + pascalCase.substring(1);
-        snakeCase = raw.toLowerCase().replace(" ", "_");
+        snakeCase = raw.toLowerCase().replaceAll("\\s", "_");
         snakeAllCapsCase = snakeCase.toUpperCase();
-        kebabCase = raw.toLowerCase().replace(" ", "-");
+        kebabCase = raw.toLowerCase().replaceAll("\\s", "-");
+
         processRootPath = rootPath.concat("/src/processes/").concat(this.camelCase);
         viewsRootPath = processRootPath.concat("/views");
         logicRootPath = processRootPath.concat("/logic");
+
         viewPath = viewsRootPath.concat(String.format("/%s.tsx", pascalCase));
         typesPath = logicRootPath.concat("/types.ts");
         actionsPath = logicRootPath.concat("/actions.ts");
         reducersPath = logicRootPath.concat("/reducers.ts");
         sagasPath = logicRootPath.concat("/sagas.ts");
-    }
-
-    public void createIfNotExist(boolean view, boolean types, boolean actions, boolean reducers, boolean sagas) throws IOException {
-        if (view) createFileIfNotExist(viewPath, "view");
-        if (types) createFileIfNotExist(typesPath, "types");
-        if (actions) createFileIfNotExist(actionsPath, "actions");
-        if (reducers) createFileIfNotExist(reducersPath, "reducers");
-        if (sagas) createFileIfNotExist(sagasPath, "sagas");
     }
 
     public void createFileIfNotExist(String path, String template) throws IOException {
@@ -82,5 +79,14 @@ public class Process {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
             bufferedWriter.write(templateContent);
         }
+    }
+
+    public static void createIfNotExist(String rootPath, String processName) throws IOException {
+        Process process = new Process(rootPath, processName);
+        process.createFileIfNotExist(process.viewPath, "view");
+        process.createFileIfNotExist(process.typesPath, "types");
+        process.createFileIfNotExist(process.actionsPath, "actions");
+        process.createFileIfNotExist(process.reducersPath, "reducers");
+        process.createFileIfNotExist(process.sagasPath, "sagas");
     }
 }
