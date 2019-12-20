@@ -1,6 +1,8 @@
 package CreateProcess.views;
 
+import CreateProcess.models.ConfigFile;
 import CreateProcess.models.Process;
+import CreateProcess.models.TheVariable;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -11,14 +13,24 @@ public class CreateProcess extends JDialog {
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField processesNames;
+    private JComboBox<Process> processes;
 
-    private String rootPath;
+    private ConfigFile configFile;
 
-    public CreateProcess() {
+    public CreateProcess(String rootPath) {
         setContentPane(contentPane);
         setModal(true);
         setTitle("Create New Process");
         getRootPane().setDefaultButton(buttonOK);
+
+        try {
+            configFile = new ConfigFile(rootPath);
+            configFile.processes.forEach(process -> {
+                processes.addItem(process);
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         buttonOK.addActionListener(e -> onOK());
         buttonCancel.addActionListener(e -> onCancel());
@@ -46,13 +58,15 @@ public class CreateProcess extends JDialog {
             return;
         }
 
-        String[] names = processesNamesText.split("\\s*[,;]\\s*");
-        for (String name : names) {
-            try {
-                Process.createIfNotExist(rootPath, name);
-            } catch (IOException e) {
-                e.printStackTrace();
+        Process selectedProcess = (Process) processes.getSelectedItem();
+        String[] formattedNames = processesNamesText.split("\\s*[,;]\\s*");
+        try {
+            for (String name : formattedNames) {
+                assert selectedProcess != null;
+                configFile.getProcess(selectedProcess.name).execute(new TheVariable(name));
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         dispose();
     }
@@ -61,13 +75,8 @@ public class CreateProcess extends JDialog {
         dispose();
     }
 
-    public void setRootPath(String rootPath) {
-        this.rootPath = rootPath;
-    }
-
     public static void main(String rootPath) {
-        CreateProcess dialog = new CreateProcess();
-        dialog.setRootPath(rootPath);
+        CreateProcess dialog = new CreateProcess(rootPath);
         dialog.pack();
         dialog.setVisible(true);
     }

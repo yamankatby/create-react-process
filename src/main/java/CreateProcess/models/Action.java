@@ -1,4 +1,4 @@
-package ConfigFile.models;
+package CreateProcess.models;
 
 import java.io.BufferedWriter;
 import java.io.File;

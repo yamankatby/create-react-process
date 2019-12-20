@@ -1,39 +1,41 @@
 package CreateProcess.models;
 
-import ConfigFile.models.ConfigFile;
-import ConfigFile.models.TheVariable;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Process {
 
-    public String rootPath;
-    public String processName;
+    public UUID uuid;
+    public String name;
+    public ArrayList<Action> actions = new ArrayList<>();
 
-    public Process(@NotNull String rootPath, @NotNull String processName) {
-        this.rootPath = rootPath;
-        this.processName = processName;
-    }
+    public Process(String content, ArrayList<Action> actions) {
+        uuid = UUID.randomUUID();
 
-    public void createFileIfNotExist(@NotNull Template template) throws IOException {
-        template.replace("Process Name", processName);
-        File file = new File(rootPath + template.path);
-        boolean mkdirs = file.getParentFile().mkdirs();
-        if (!file.createNewFile() || template.content == null) {
-            return;
+        Pattern namePattern = Pattern.compile("(?<=^).*?(?=\\n)");
+        Matcher nameMatcher = namePattern.matcher(content);
+        if (nameMatcher.find()) {
+            name = nameMatcher.group();
         }
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
-            bufferedWriter.write(template.content);
+        Pattern actionsPattern = Pattern.compile("(?<=-\\s).*?(?=\\n)");
+        Matcher actionsMatcher = actionsPattern.matcher(content);
+        while (actionsMatcher.find()) {
+            this.actions.add(actions.stream().filter(a -> a.name.equals(actionsMatcher.group())).findFirst().orElse(null));
         }
     }
 
-    public static void createIfNotExist(String rootPath, String processName) throws IOException {
-        ConfigFile configFile = new ConfigFile(rootPath);
-        configFile.getProcess("create-new-process").execute(new TheVariable(processName));
+    public void execute(TheVariable theVariable) throws IOException {
+        for (Action action : actions) {
+            action.execute(theVariable);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

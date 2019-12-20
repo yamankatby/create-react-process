@@ -1,4 +1,4 @@
-package ConfigFile.models;
+package CreateProcess.models;
 
 import org.jetbrains.annotations.NotNull;
 
