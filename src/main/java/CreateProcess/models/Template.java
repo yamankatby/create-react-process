@@ -1,5 +1,7 @@
 package CreateProcess.models;
 
+import ConfigFile.models.TheVariable;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,20 +34,20 @@ public class Template {
     }
 
     public void replace(String target, String replacement) {
-        Variable key = new Variable(target);
-        Variable value = new Variable(replacement);
-
-        path = path.replace("$" + key.raw + "$", value.raw);
-        path = path.replace("$" + key.pascalCase + "$", value.pascalCase);
-        path = path.replace("$" + key.camelCase + "$", value.camelCase);
-        path = path.replace("$" + key.snakeCase + "$", value.snakeCase);
-        path = path.replace("$" + key.snakeAllCapsCase + "$", value.snakeAllCapsCase);
-        path = path.replace("$" + key.kebabCase + "$", value.kebabCase);
-        content = content.replace("$" + key.raw + "$", value.raw);
-        content = content.replace("$" + key.pascalCase + "$", value.pascalCase);
-        content = content.replace("$" + key.camelCase + "$", value.camelCase);
-        content = content.replace("$" + key.snakeCase + "$", value.snakeCase);
-        content = content.replace("$" + key.snakeAllCapsCase + "$", value.snakeAllCapsCase);
-        content = content.replace("$" + key.kebabCase + "$", value.kebabCase);
+//        TheVariable key = new TheVariable(target);
+//        TheVariable value = new TheVariable(replacement);
+//
+//        path = path.replace("$" + key.raw + "$", value.raw);
+//        path = path.replace("$" + key.pascalCase + "$", value.pascalCase);
+//        path = path.replace("$" + key.camelCase + "$", value.camelCase);
+//        path = path.replace("$" + key.snakeCase + "$", value.snakeCase);
+//        path = path.replace("$" + key.snakeAllCapsCase + "$", value.snakeAllCapsCase);
+//        path = path.replace("$" + key.kebabCase + "$", value.kebabCase);
+//        content = content.replace("$" + key.raw + "$", value.raw);
+//        content = content.replace("$" + key.pascalCase + "$", value.pascalCase);
+//        content = content.replace("$" + key.camelCase + "$", value.camelCase);
+//        content = content.replace("$" + key.snakeCase + "$", value.snakeCase);
+//        content = content.replace("$" + key.snakeAllCapsCase + "$", value.snakeAllCapsCase);
+//        content = content.replace("$" + key.kebabCase + "$", value.kebabCase);
     }
 }

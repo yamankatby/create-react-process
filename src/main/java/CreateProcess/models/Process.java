@@ -1,5 +1,7 @@
 package CreateProcess.models;
 
+import ConfigFile.models.ConfigFile;
+import ConfigFile.models.TheVariable;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedWriter;
@@ -31,12 +33,7 @@ public class Process {
     }
 
     public static void createIfNotExist(String rootPath, String processName) throws IOException {
-        Process process = new Process(rootPath, processName);
-        TemplatesManager templatesManager = new TemplatesManager();
-        process.createFileIfNotExist(templatesManager.templates.get("view"));
-        process.createFileIfNotExist(templatesManager.templates.get("types"));
-        process.createFileIfNotExist(templatesManager.templates.get("actions"));
-        process.createFileIfNotExist(templatesManager.templates.get("reducers"));
-        process.createFileIfNotExist(templatesManager.templates.get("sagas"));
+        ConfigFile configFile = new ConfigFile(rootPath);
+        configFile.getProcess("create-new-process").execute(new TheVariable(processName));
     }
 }
