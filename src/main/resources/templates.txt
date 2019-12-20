@@ -1,0 +1,57 @@
+// @crp-template view /src/processes/$processName$/views/$ProcessName$.tsx
+import React from 'react';
+
+interface Props {
+
+}
+
+const $ProcessName$ = (props: Props) => {
+	return <h4>Hi, $ProcessName$ component!</h4>;
+};
+
+export default $ProcessName$;
+
+// @crp-template types /src/processes/$processName$/logic/types.ts
+import { AppAction, AppResultAction } from '../../../config/types';
+
+export enum ActionTypes {
+	clear_$process_name$ = '$PROCESS_NAME$__CLEAR_$PROCESS_NAME$',
+}
+
+export type Action = AppAction | AppResultAction;
+
+export interface State {
+
+}
+
+// @crp-template actions /src/processes/$processName$/logic/actions.ts
+import { AppAction } from '../../../config/types';
+import { ActionTypes } from './types';
+
+export const clear$ProcessName$ = (): AppAction => ({
+	type: ActionTypes.clear_$process_name$,
+});
+
+// @crp-template reducers /src/processes/$processName$/logic/reducers.ts
+import { Reducer } from 'redux';
+import { Action, ActionTypes, State } from './types';
+
+const initialState: State = {};
+
+const $processName$: Reducer<State, Action> = (state = initialState, action) => {
+	switch (action.type) {
+		case ActionTypes.clear_$process_name$:
+			return {
+				...initialState,
+			};
+		default:
+			return state;
+	}
+};
+
+export default $processName$;
+
+// @crp-template sagas /src/processes/$processName$/logic/sagas.ts
+export default [];
+
+// @crp-end

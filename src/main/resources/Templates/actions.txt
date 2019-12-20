@@ -1,6 +1,0 @@
-import { AppAction } from '../../../config/types';
-import { ActionTypes } from './types';
-
-export const clear$ProcessName$ = (): AppAction => ({
-	type: ActionTypes.clear_$process_name$,
-});
