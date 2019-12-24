@@ -33,23 +33,10 @@ public class FileTemplate {
 
     public void createFile(String processName) throws IOException {
         if (name == null || path == null || content == null) return;
-        Constant constant = new Constant(processName);
 
-        String formattedPath = this.path;
-        formattedPath = formattedPath.replace("$Process Name$", constant.raw);
-        formattedPath = formattedPath.replace("$ProcessName$", constant.pascalCase);
-        formattedPath = formattedPath.replace("$processName$", constant.camelCase);
-        formattedPath = formattedPath.replace("$process_name$", constant.snakeCase);
-        formattedPath = formattedPath.replace("$PROCESS_NAME$", constant.snakeAllCapsCase);
-        formattedPath = formattedPath.replace("$process-name$", constant.kebabCase);
-
-        String formattedContent = this.content;
-        formattedContent = formattedContent.replace("$Process Name$", constant.raw);
-        formattedContent = formattedContent.replace("$ProcessName$", constant.pascalCase);
-        formattedContent = formattedContent.replace("$processName$", constant.camelCase);
-        formattedContent = formattedContent.replace("$process_name$", constant.snakeCase);
-        formattedContent = formattedContent.replace("$PROCESS_NAME$", constant.snakeAllCapsCase);
-        formattedContent = formattedContent.replace("$process-name$", constant.kebabCase);
+        Constant constant = new Constant("Process Name", processName);
+        String formattedPath = constant.format(this.path);
+        String formattedContent = constant.format(this.content);
 
         File file = new File(formattedPath);
         file.getParentFile().mkdirs();
