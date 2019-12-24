@@ -2,21 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c0f5706-c6be-495e-9762-a4e665c56861" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Action/models/Action.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Process/models/Process.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Process/views/CreateNewProcess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utilities/ConfigFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utilities/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utilities/FileTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConfigFile/models/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConfigFile/models/ConfigFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ConfigFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConfigFile/models/Process.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConfigFile/models/TheVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/TheVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Template.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/TemplatesManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/ConfigFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/Process.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/models/TheVariable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Process/views/CreateNewProcess.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcess/views/CreateProcess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreateProcessAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateProcessAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +79,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Process/views" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/Templates" />
     </key>
@@ -125,7 +131,10 @@
       <workItem from="1576647254199" duration="404000" />
       <workItem from="1576647728718" duration="15718000" />
       <workItem from="1576768624157" duration="3344000" />
-      <workItem from="1576820175847" duration="22494000" />
+      <workItem from="1576820175847" duration="26743000" />
+      <workItem from="1576922598354" duration="8748000" />
+      <workItem from="1576935685341" duration="243000" />
+      <workItem from="1577175968245" duration="1189000" />
     </task>
     <servers />
   </component>
@@ -137,6 +146,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="880" y="397" key="#Inspections/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576830533238" />
+    <state x="1033" y="541" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576853814469">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1033" y="541" key="#com.intellij.fileTypes.FileTypeChooser/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576853814469" />
     <state x="1093" y="448" key="#com.intellij.ide.util.MemberChooser" timestamp="1576849701893">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -145,54 +158,54 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1132" y="627" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576577137565" />
-    <state x="857" y="664" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1576848905174">
+    <state x="857" y="664" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1576852533566">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="857" y="664" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576848905174" />
-    <state x="888" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576847289565">
+    <state x="857" y="664" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576852533566" />
+    <state x="888" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576854637564">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="888" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576847289565" />
-    <state x="548" y="408" width="1667" height="971" key="#xdebugger.evaluate" timestamp="1576843583711">
+    <state x="888" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576854637564" />
+    <state x="548" y="408" width="1667" height="971" key="#xdebugger.evaluate" timestamp="1576925882854">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="548" y="408" width="1667" height="971" key="#xdebugger.evaluate/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576843583711" />
+    <state x="548" y="408" width="1667" height="971" key="#xdebugger.evaluate/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576925882854" />
     <state width="439" height="466" key="DebuggerActiveHint" timestamp="1576828855375">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state width="439" height="466" key="DebuggerActiveHint/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576828855375" />
-    <state width="2560" height="136" key="GridCell.Tab.0.bottom" timestamp="1576850258353">
+    <state width="2560" height="589" key="GridCell.Tab.0.bottom" timestamp="1577177940333">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576850258353" />
-    <state width="2560" height="136" key="GridCell.Tab.0.center" timestamp="1576850258353">
+    <state width="2560" height="589" key="GridCell.Tab.0.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940333" />
+    <state width="2560" height="589" key="GridCell.Tab.0.center" timestamp="1577177940332">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576850258353" />
-    <state width="2560" height="136" key="GridCell.Tab.0.left" timestamp="1576850258352">
+    <state width="2560" height="589" key="GridCell.Tab.0.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940332" />
+    <state width="2560" height="589" key="GridCell.Tab.0.left" timestamp="1577177940331">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576850258352" />
-    <state width="2560" height="136" key="GridCell.Tab.0.right" timestamp="1576850258353">
+    <state width="2560" height="589" key="GridCell.Tab.0.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940331" />
+    <state width="2560" height="589" key="GridCell.Tab.0.right" timestamp="1577177940332">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="136" key="GridCell.Tab.0.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576850258353" />
-    <state width="2560" height="589" key="GridCell.Tab.1.bottom" timestamp="1576849983019">
+    <state width="2560" height="589" key="GridCell.Tab.0.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940332" />
+    <state width="2560" height="589" key="GridCell.Tab.1.bottom" timestamp="1577177940335">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="589" key="GridCell.Tab.1.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576849983019" />
-    <state width="2560" height="589" key="GridCell.Tab.1.center" timestamp="1576849983019">
+    <state width="2560" height="589" key="GridCell.Tab.1.bottom/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940335" />
+    <state width="2560" height="589" key="GridCell.Tab.1.center" timestamp="1577177940334">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="589" key="GridCell.Tab.1.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576849983019" />
-    <state width="2560" height="589" key="GridCell.Tab.1.left" timestamp="1576849983019">
+    <state width="2560" height="589" key="GridCell.Tab.1.center/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940334" />
+    <state width="2560" height="589" key="GridCell.Tab.1.left" timestamp="1577177940333">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="589" key="GridCell.Tab.1.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576849983019" />
-    <state width="2560" height="589" key="GridCell.Tab.1.right" timestamp="1576849983019">
+    <state width="2560" height="589" key="GridCell.Tab.1.left/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940333" />
+    <state width="2560" height="589" key="GridCell.Tab.1.right" timestamp="1577177940334">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="2560" height="589" key="GridCell.Tab.1.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576849983019" />
+    <state width="2560" height="589" key="GridCell.Tab.1.right/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1577177940334" />
     <state x="789" y="370" key="SettingsEditor" timestamp="1576648083586">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -213,10 +226,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1042" y="345" key="refactoring.ChangeSignatureDialog/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576849460288" />
-    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1576585641713">
+    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1576925412726">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576585641713" />
+    <state x="945" y="348" width="670" height="676" key="search.everywhere.popup/2560.293.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1576925412726" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/create_react_process$Plugin.ic" NAME="Plugin Coverage Results" MODIFIED="1576736136599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

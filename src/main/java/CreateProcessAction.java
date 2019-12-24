@@ -1,4 +1,5 @@
-import CreateProcess.views.CreateProcess;
+import Process.views.CreateNewProcess;
+import Utilities.ConfigFile;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.module.ModuleManager;
@@ -10,7 +11,8 @@ public class CreateProcessAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         Project project = e.getProject();
-        String rootPath = ModuleRootManager.getInstance(ModuleManager.getInstance(project).getModules()[0]).getContentRoots()[0].getPath();
-        CreateProcess.main(rootPath);
+        assert project != null;
+        ConfigFile.rootPath = ModuleRootManager.getInstance(ModuleManager.getInstance(project).getModules()[0]).getContentRoots()[0].getPath();
+        CreateNewProcess.main();
     }
 }
