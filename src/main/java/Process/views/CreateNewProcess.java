@@ -1,10 +1,9 @@
 package Process.views;
 
-import Utilities.ConfigFile;
+import Process.models.Process;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class CreateNewProcess extends JDialog {
@@ -54,16 +53,10 @@ public class CreateNewProcess extends JDialog {
             return;
         }
 
-        try {
-            ConfigFile.reFetchConfig();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
         String[] names = processesNames.getText().split("\\s*[,;]\\s*");
         for (String name : names) {
             try {
-                ConfigFile.createProcess(name);
+                Process.createProcess(name);
             } catch (IOException e) {
                 e.printStackTrace();
             }
