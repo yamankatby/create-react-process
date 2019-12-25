@@ -22,6 +22,8 @@
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action id="com.swazerlab.create-react-process" class="CreateProcessAction" text="Create New Process"
                     description="Create new React process"/>
+            <action id="com.swazerlab.create-react-action" class="CreateActionAction" text="Create New Action"
+                    description="Create new React action"/>
         </group>
     </actions>
 </idea-plugin>
