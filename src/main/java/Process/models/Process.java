@@ -81,7 +81,17 @@ public class Process {
         process.createSagasFile();
         process.createAPIsFile();
 
-        Action clearAll = new Action(name, "clear all", true, true, true, true, new ArrayList<>(), new ArrayList<>());
+        Action clearAll = new Action("fdsafads", "clear all", true, true, true, true, new ArrayList<>(), new ArrayList<>());
+        Action some = new Action("fdsafads", "do some else", true, true, true, true, new ArrayList<>(), new ArrayList<>());
+        Action clearasdfAll = new Action("fdsafads", "another al", true, true, true, true, new ArrayList<>(), new ArrayList<>());
+        Action somffe = new Action("fdsafads", "asldjf", true, true, true, true, new ArrayList<>(), new ArrayList<>());
+        Action cledsfarAll = new Action("fdsafads", "fdsaas", true, true, true, true, new ArrayList<>(), new ArrayList<>());
+        Action asdf = new Action("fdsafads", "aakjdkd", true, true, true, true, new ArrayList<>(), new ArrayList<>());
         clearAll.execute();
+        some.execute();
+        clearasdfAll.execute();
+        somffe.execute();
+        cledsfarAll.execute();
+        asdf.execute();
     }
 }

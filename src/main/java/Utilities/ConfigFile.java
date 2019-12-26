@@ -64,7 +64,7 @@ public final class ConfigFile {
         else if (breakPoint == BreakPoint.API) breakPointName = "api";
 
         String configFileContent = fetchConfigFile();
-        Pattern pattern = Pattern.compile("(?<=//\\s@crp-template-name\\n)(.|\\n)*?(?=(//\\s@crp-|$))".replace("template-name", breakPointName));
+        Pattern pattern = Pattern.compile("(?<=//\\s@crp-name\\n)(.|\\n)*?(?=\\n*(//\\s@crp-|$))".replace("name", breakPointName));
         Matcher matcher = pattern.matcher(configFileContent);
         if (matcher.find()) {
             return matcher.group();

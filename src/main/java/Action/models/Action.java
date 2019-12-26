@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Action {
 
@@ -45,6 +47,27 @@ public class Action {
         this.resultActionNameConstant = new Constant("Action Name", actionName + " Result");
     }
 
+    private void createActionType() throws IOException {
+        process.createTypesFile();
+        File file = new File(process.typesPath);
+        String fileContent = new Scanner(file).useDelimiter("\\Z").next();
+
+        Pattern actionTypesPattern = Pattern.compile("(?<=export\\senum\\sActionTypes(\\s)\\{)(.|\\n)*?(?=})");
+        Matcher actionTypesMatcher = actionTypesPattern.matcher(fileContent);
+        if (!actionTypesMatcher.find()) return;
+        String actionTypes = actionTypesMatcher.group();
+
+        String template = ConfigFile.fetchTemplate(ConfigFile.BreakPoint.ACTION_TYPE);
+        if (template.equals("")) return;
+        template = processNameConstant.format(template);
+        template = actionNameConstant.format(template);
+
+        fileContent = fileContent.replaceAll("(?<=export\\senum\\sActionTypes(\\s)\\{)(.|\\n)*?(?=})", "\n\t" + actionTypes.trim() + "\n\t" + template + "\n");
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            bufferedWriter.write(fileContent);
+        }
+    }
+
     public void createActionTypes() throws IOException {
         process.createTypesFile();
         String actionTypeTemplate = ConfigFile.fetchTemplate(ConfigFile.BreakPoint.ACTION_TYPE);
@@ -63,35 +86,7 @@ public class Action {
         }
     }
 
-    public void createResultActionTypes() throws IOException {
-
-    }
-
-    public void createAction() throws IOException {
-        createActionTypes();
-    }
-
-    public void createResultAction() throws IOException {
-
-    }
-
-    public void createReducer() throws IOException {
-
-    }
-
-    public void createSaga() throws IOException {
-
-    }
-
-    public void createAPI() throws IOException {
-
-    }
-
     public void execute() throws IOException {
-        createAction();
-        if (hasResultAction) createResultAction();
-        if (hasReducer) createReducer();
-        if (hasSaga) createSaga();
-        if (hasAPI) createAPI();
+        createActionType();
     }
 }
