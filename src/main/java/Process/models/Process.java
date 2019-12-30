@@ -1,97 +1,95 @@
 package Process.models;
 
 import Action.models.Action;
+import Action.models.ActionParam;
 import Utilities.ConfigFile;
 import Utilities.Constant;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Process {
 
-    private String name;
-    private Constant nameConstant;
-
-    public String viewPath;
-    public String typesPath;
-    public String actionsPath;
-    public String reducersPath;
-    public String sagasPath;
-    public String apisPath;
+    public Constant name;
+    public ProcessFile view;
+    public ProcessFile types;
+    public ProcessFile actions;
+    public ProcessFile reducers;
+    public ProcessFile sagas;
+    public ProcessFile apis;
 
     public Process(String name) {
-        this.name = name;
-        this.nameConstant = new Constant("Process Name", name);
-
-        this.viewPath = ConfigFile.rootPath.concat(String.format("/src/processes/%s/views/%s.tsx", nameConstant.camelCase, nameConstant.pascalCase));
-        this.typesPath = ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/types.ts", nameConstant.camelCase));
-        this.actionsPath = ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/actions.ts", nameConstant.camelCase));
-        this.reducersPath = ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/reducers.ts", nameConstant.camelCase));
-        this.sagasPath = ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/sagas.ts", nameConstant.camelCase));
-        this.apisPath = ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/apis.ts", nameConstant.camelCase));
+        this.name = new Constant("Process Name", name);
+        view = new ProcessFile(ConfigFile.rootPath.concat(String.format("/src/processes/%s/views/%s.tsx", this.name.camelCase, this.name.pascalCase)));
+        types = new ProcessFile(ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/types.ts", this.name.camelCase)));
+        actions = new ProcessFile(ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/actions.ts", this.name.camelCase)));
+        reducers = new ProcessFile(ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/reducers.ts", this.name.camelCase)));
+        sagas = new ProcessFile(ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/sagas.ts", this.name.camelCase)));
+        apis = new ProcessFile(ConfigFile.rootPath.concat(String.format("/src/processes/%s/logic/apis.ts", this.name.camelCase)));
     }
 
-    private void createFileIfNotExists(String path, ConfigFile.BreakPoint breakPoint) throws IOException {
-        File file = new File(path);
-        file.getParentFile().mkdirs();
-        if (!file.createNewFile()) return;
-
-        String fileTemplate = ConfigFile.fetchTemplate(breakPoint);
-        fileTemplate = nameConstant.format(fileTemplate);
-        if (fileTemplate.equals("")) return;
-
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
-            bufferedWriter.write(fileTemplate);
-        }
+    public void createViewFileIfNotExists() throws IOException {
+        String template = ConfigFile.fetchTemplate("view-file");
+        name.format(template);
+        view.createIfNotExists(template);
     }
 
-    public void createViewFile() throws IOException {
-        createFileIfNotExists(viewPath, ConfigFile.BreakPoint.VIEW_FILE);
+    public void createTypesFileIfNotExists() throws IOException {
+        String template = ConfigFile.fetchTemplate("types-file");
+        name.format(template);
+        types.createIfNotExists(template);
     }
 
-    public void createTypesFile() throws IOException {
-        createFileIfNotExists(typesPath, ConfigFile.BreakPoint.TYPES_FILE);
+    public void createActionsFileIfNotExists() throws IOException {
+        String template = ConfigFile.fetchTemplate("actions-file");
+        name.format(template);
+        actions.createIfNotExists(template);
     }
 
-    public void createActionsFile() throws IOException {
-        createFileIfNotExists(actionsPath, ConfigFile.BreakPoint.ACTIONS_FILE);
+    public void createReducersFileIfNotExists() throws IOException {
+        String template = ConfigFile.fetchTemplate("reducers-file");
+        name.format(template);
+        reducers.createIfNotExists(template);
     }
 
-    public void createReducersFile() throws IOException {
-        createFileIfNotExists(reducersPath, ConfigFile.BreakPoint.REDUCERS_FILE);
+    public void createSagasFileIfNotExists() throws IOException {
+        String template = ConfigFile.fetchTemplate("sagas-file");
+        name.format(template);
+        sagas.createIfNotExists(template);
     }
 
-    public void createSagasFile() throws IOException {
-        createFileIfNotExists(sagasPath, ConfigFile.BreakPoint.SAGAS_FILE);
+    public void createAPIsFileIfNotExists() throws IOException {
+        String template = ConfigFile.fetchTemplate("apis-file");
+        name.format(template);
+        apis.createIfNotExists(template);
     }
 
-    public void createAPIsFile() throws IOException {
-        createFileIfNotExists(apisPath, ConfigFile.BreakPoint.APIS_FILE);
+    public void reflect() throws IOException {
+        view.reflect();
+        types.reflect();
+        actions.reflect();
+        reducers.reflect();
+        sagas.reflect();
+        apis.reflect();
     }
 
     public static void createProcess(String name) throws IOException {
         Process process = new Process(name);
-        process.createViewFile();
-        process.createTypesFile();
-        process.createActionsFile();
-        process.createReducersFile();
-        process.createSagasFile();
-        process.createAPIsFile();
+        process.createViewFileIfNotExists();
+        process.createTypesFileIfNotExists();
+        process.createActionsFileIfNotExists();
+        process.createReducersFileIfNotExists();
+        process.createSagasFileIfNotExists();
+        process.createAPIsFileIfNotExists();
 
-        Action clearAll = new Action("fdsafads", "clear all", true, true, true, true, new ArrayList<>(), new ArrayList<>());
-        Action some = new Action("fdsafads", "do some else", true, true, true, true, new ArrayList<>(), new ArrayList<>());
-        Action clearasdfAll = new Action("fdsafads", "another al", true, true, true, true, new ArrayList<>(), new ArrayList<>());
-        Action somffe = new Action("fdsafads", "asldjf", true, true, true, true, new ArrayList<>(), new ArrayList<>());
-        Action cledsfarAll = new Action("fdsafads", "fdsaas", true, true, true, true, new ArrayList<>(), new ArrayList<>());
-        Action asdf = new Action("fdsafads", "aakjdkd", true, true, true, true, new ArrayList<>(), new ArrayList<>());
-        clearAll.execute();
-        some.execute();
-        clearasdfAll.execute();
-        somffe.execute();
-        cledsfarAll.execute();
-        asdf.execute();
+        ArrayList<ActionParam> actionParams = new ArrayList<>();
+        actionParams.add(new ActionParam("username", "string"));
+        actionParams.add(new ActionParam("profile", "Profile"));
+        actionParams.add(new ActionParam("isLoggedIn", "boolean"));
+        Action action = new Action(process, "fetch profile", false, true, true, actionParams);
+        action.execute();
+
+        Action actionf = new Action(process, "fetch profile result", true, false, false, new ArrayList<>());
+        actionf.execute();
     }
 }
