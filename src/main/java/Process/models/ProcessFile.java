@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,23 +41,13 @@ public class ProcessFile {
     }
 
     public void addImport(String anImport) {
-        Pattern pattern = Pattern.compile("import\\s(.|\\n)*from\\s.*?;");
+        Pattern pattern = Pattern.compile("((import\\s)(.|\\n)*from.*?;)");
+        Matcher matcher = pattern.matcher(content);
+        if (matcher.find()) content = content.replaceAll(pattern.pattern(), "$1\n" + anImport);
+        else content = content.replaceAll("^", anImport + "\n\n");
     }
 
     public void reflect() throws IOException {
-        Pattern pattern = Pattern.compile("import\\s.*?;");
-        Matcher matcher = pattern.matcher(content);
-
-        ArrayList<String> imports = new ArrayList<>();
-        while (matcher.find()) {
-            imports.add(matcher.group());
-        }
-
-        content = content.replaceAll(pattern.pattern(), "");
-        for (String anImport : imports) {
-            content = content.replaceAll("$", "\n" + anImport);
-        }
-
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
             bufferedWriter.write(content);
         }

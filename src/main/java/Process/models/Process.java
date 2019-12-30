@@ -30,37 +30,37 @@ public class Process {
 
     public void createViewFileIfNotExists() throws IOException {
         String template = ConfigFile.fetchTemplate("view-file");
-        name.format(template);
+        template = name.format(template);
         view.createIfNotExists(template);
     }
 
     public void createTypesFileIfNotExists() throws IOException {
         String template = ConfigFile.fetchTemplate("types-file");
-        name.format(template);
+        template = name.format(template);
         types.createIfNotExists(template);
     }
 
     public void createActionsFileIfNotExists() throws IOException {
         String template = ConfigFile.fetchTemplate("actions-file");
-        name.format(template);
+        template = name.format(template);
         actions.createIfNotExists(template);
     }
 
     public void createReducersFileIfNotExists() throws IOException {
         String template = ConfigFile.fetchTemplate("reducers-file");
-        name.format(template);
+        template = name.format(template);
         reducers.createIfNotExists(template);
     }
 
     public void createSagasFileIfNotExists() throws IOException {
         String template = ConfigFile.fetchTemplate("sagas-file");
-        name.format(template);
+        template = name.format(template);
         sagas.createIfNotExists(template);
     }
 
     public void createAPIsFileIfNotExists() throws IOException {
         String template = ConfigFile.fetchTemplate("apis-file");
-        name.format(template);
+        template = name.format(template);
         apis.createIfNotExists(template);
     }
 
@@ -82,14 +82,21 @@ public class Process {
         process.createSagasFileIfNotExists();
         process.createAPIsFileIfNotExists();
 
-        ArrayList<ActionParam> actionParams = new ArrayList<>();
-        actionParams.add(new ActionParam("username", "string"));
-        actionParams.add(new ActionParam("profile", "Profile"));
-        actionParams.add(new ActionParam("isLoggedIn", "boolean"));
-        Action action = new Action(process, "fetch profile", false, true, true, actionParams);
-        action.execute();
+        ArrayList<ActionParam> params = new ArrayList<>();
+        params.add(new ActionParam("name", "string"));
+        params.add(new ActionParam("email", "string"));
+        params.add(new ActionParam("age", "number"));
+        params.add(new ActionParam("gander", "'male'|'female'"));
+        params.add(new ActionParam("password", "string"));
 
-        Action actionf = new Action(process, "fetch profile result", true, false, false, new ArrayList<>());
-        actionf.execute();
+        ArrayList<ActionParam> actionResultParams = new ArrayList<>();
+        actionResultParams.add(new ActionParam("todo", "Todo"));
+        actionResultParams.add(new ActionParam("length", "number"));
+
+        Action action = new Action(process, "add todo", true, true, true, params);
+        Action resultAction = new Action(process, "add todo result", true, true, true, true, actionResultParams);
+
+        action.execute();
+        resultAction.execute();
     }
 }
