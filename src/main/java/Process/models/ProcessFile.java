@@ -40,14 +40,18 @@ public class ProcessFile {
         content = template;
     }
 
-    public void addImport(String anImport) {
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void insertAnImport(String anImport) {
         Pattern pattern = Pattern.compile("((import\\s)(.|\\n)*from.*?;)");
         Matcher matcher = pattern.matcher(content);
         if (matcher.find()) content = content.replaceAll(pattern.pattern(), "$1\n" + anImport);
         else content = content.replaceAll("^", anImport + "\n\n");
     }
 
-    public void reflect() throws IOException {
+    public void save() throws IOException {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
             bufferedWriter.write(content);
         }

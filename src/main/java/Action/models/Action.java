@@ -42,7 +42,7 @@ public class Action {
         template = process.name.format(template);
         template = name.format(template);
 
-        process.types.content = process.types.content.replaceAll("((?<=export\\senum\\sActionTypes\\s\\{\\n)(.|\\n)*?(?=}))", "$1\t" + template + "\n");
+        process.types.setContent(process.types.content.replaceAll("((?<=export\\senum\\sActionTypes\\s\\{\\n)(.|\\n)*?(?=}))", "$1\t" + template + "\n"));
     }
 
     private void createActionInterface() throws FileNotFoundException {
@@ -58,7 +58,7 @@ public class Action {
         template = template.replace("$BaseActionInterface", isResultAction ? "AppResultAction" : "AppAction");
         template = template.replace("$ActionParams", actionParams.toString().trim());
 
-        process.types.content = process.types.content.replace("export type Action", template + "\n\n" + "export type Action");
+        process.types.setContent(process.types.content.replace("export type Action", template + "\n\n" + "export type Action"));
         createActionInterfaceLink();
     }
 
@@ -67,15 +67,16 @@ public class Action {
         if (template.equals("")) return;
         template = process.name.format(template);
         template = name.format(template);
-
         template = template.replace("$ActionInterface", name.pascalCase + "Action");
-        process.types.content = process.types.content.replaceAll("((?<=export\\stype\\sAction\\s=)(.|\\n)*?(?=;))", "$1\n\t" + template);
+
+        process.types.setContent(process.types.content.replaceAll("((?<=export\\stype\\sAction\\s=)(.|\\n)*?(?=;))", "$1\n\t" + template));
     }
 
     public void createActionTypes() throws IOException {
         process.createTypesFileIfNotExists();
         createActionType();
         if (params.size() > 0) createActionInterface();
+        process.types.save();
     }
 
     public void createAction() throws IOException {
@@ -100,7 +101,8 @@ public class Action {
         template = template.replace("$ActionParamsWithTypes", paramsWithTypes.toString().trim());
         template = template.replace("$ActionParams", params.toString().trim());
 
-        process.actions.content = process.actions.content.replaceAll("$", "\n" + template);
+        process.actions.setContent(process.actions.content.replaceAll("$", "\n" + template));
+        process.actions.save();
     }
 
     public void createReducer() throws IOException {
@@ -113,10 +115,12 @@ public class Action {
         Pattern pattern = Pattern.compile("((import\\s)(.|\\n)*from.*?;)");
         Matcher matcher = pattern.matcher(template);
         while (matcher.find()) {
-            process.reducers.addImport(matcher.group());
+            process.reducers.insertAnImport(matcher.group());
         }
         template = template.substring(template.indexOf('\n') + 1);
-        process.reducers.content = process.reducers.content.replaceAll("(default:\\n\\t{3}return\\sstate;)", template + "\n\t\t$1");
+
+        process.reducers.setContent(process.reducers.content.replaceAll("(default:\\n\\t{3}return\\sstate;)", template + "\n\t\t$1"));
+        process.reducers.save();
     }
 
     public void createSaga() throws IOException {
@@ -130,7 +134,7 @@ public class Action {
             template = template.replace("action: $ActionInterface", "");
             template = template.replace("\nconst { $params } = action;", "");
         } else {
-            process.sagas.addImport("import { " + name.pascalCase + "Action" + " } from './types';");
+            process.sagas.insertAnImport("import { " + name.pascalCase + "Action" + " } from './types';");
             template = template.replace("$ActionInterface", name.pascalCase + "Action");
             StringBuilder params = new StringBuilder();
             for (ActionParam param : this.params) {
@@ -139,8 +143,11 @@ public class Action {
             template = template.replace("$params", params.toString().trim());
         }
         if (hasAPI) template = createSagaRequest(template);
-        process.sagas.content = process.sagas.content.replace("export default [", template + "\n\nexport default [");
+
+        process.sagas.setContent(process.sagas.content.replace("export default [", template + "\n\nexport default ["));
+
         createSagaLink();
+        process.sagas.save();
     }
 
     private String createSagaRequest(String saga) throws FileNotFoundException {
@@ -152,7 +159,7 @@ public class Action {
         Pattern pattern = Pattern.compile("((import\\s)(.|\\n)*from.*?;)");
         Matcher matcher = pattern.matcher(template);
         while (matcher.find()) {
-            process.sagas.addImport(matcher.group());
+            process.sagas.insertAnImport(matcher.group());
         }
         template = template.substring(template.indexOf('\n') + 1);
         template = template.substring(template.indexOf('\n') + 1);
@@ -169,12 +176,12 @@ public class Action {
         Pattern pattern = Pattern.compile("((import\\s)(.|\\n)*from.*?;)");
         Matcher matcher = pattern.matcher(template);
         while (matcher.find()) {
-            process.sagas.addImport(matcher.group());
+            process.sagas.insertAnImport(matcher.group());
         }
         template = template.substring(template.indexOf('\n') + 1);
         template = template.substring(template.indexOf('\n') + 1);
 
-        process.sagas.content = process.sagas.content.replaceAll("((?<=export\\sdefault\\s\\[)(.|\\n)*?(?=];))", "$1\n" + template);
+        process.sagas.setContent(process.sagas.content.replaceAll("((?<=export\\sdefault\\s\\[)(.|\\n)*?(?=];))", "$1\n" + template));
     }
 
     public void createAPI() throws IOException {
@@ -184,15 +191,15 @@ public class Action {
         template = process.name.format(template);
         template = name.format(template);
 
-        process.apis.content = process.apis.content.replaceAll("$", "\n" + template);
+        process.apis.setContent(process.apis.content.replaceAll("$", "\n" + template));
+        process.apis.save();
     }
 
-    public void execute() throws IOException {
+    public void create() throws IOException {
         createActionTypes();
         createAction();
         if (hasReducer) createReducer();
         if (hasSaga) createSaga();
         if (hasAPI) createAPI();
-        process.reflect();
     }
 }
