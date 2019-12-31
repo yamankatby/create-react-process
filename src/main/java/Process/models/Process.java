@@ -2,8 +2,12 @@ package Process.models;
 
 import Utilities.ConfigFile;
 import Utilities.Constant;
+import org.apache.commons.lang.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Process {
 
@@ -69,5 +73,23 @@ public class Process {
         process.createReducersFileIfNotExists();
         process.createSagasFileIfNotExists();
         process.createAPIsFileIfNotExists();
+    }
+
+    @NotNull
+    public static Process[] fetchProcesses() {
+        File file = new File(ConfigFile.rootPath.concat("/src/processes/"));
+        String[] directories = file.list((dir, name) -> new File(dir, name).isDirectory());
+        ArrayList<Process> processes = new ArrayList<>();
+        assert directories != null;
+        for (String directory : directories) {
+            String name = StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(directory), ' ');
+            processes.add(new Process(name));
+        }
+        return processes.toArray(new Process[0]);
+    }
+
+    @Override
+    public String toString() {
+        return name.raw;
     }
 }

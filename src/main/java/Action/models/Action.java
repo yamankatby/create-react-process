@@ -20,7 +20,33 @@ public class Action {
     private boolean hasSaga;
     private boolean hasAPI;
 
-    private ArrayList<ActionParam> params;
+    private ArrayList<ActionParam> params = new ArrayList<>();
+
+    public Action(Process process, String name) {
+        this.process = process;
+        this.name = new Constant("Action name", name);
+    }
+
+    public void setResultAction(boolean resultAction) {
+        this.name = new Constant("Action name", this.name.raw + " result");
+        this.isResultAction = resultAction;
+    }
+
+    public void setHasReducer(boolean hasReducer) {
+        this.hasReducer = hasReducer;
+    }
+
+    public void setHasSaga(boolean hasSaga) {
+        this.hasSaga = hasSaga;
+    }
+
+    public void setHasAPI(boolean hasAPI) {
+        this.hasAPI = hasAPI;
+    }
+
+    public void setParams(ArrayList<ActionParam> params) {
+        this.params = params;
+    }
 
     public Action(Process process, String name, boolean hasReducer, boolean hasSaga, boolean hasAPI, ArrayList<ActionParam> params) {
         this.process = process;
