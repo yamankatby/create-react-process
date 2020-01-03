@@ -1,12 +1,14 @@
 package Action.views;
 
 import Action.models.Action;
+import Action.models.ActionParam;
 import Process.models.Process;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CreateNewAction extends JDialog {
 
@@ -28,6 +30,9 @@ public class CreateNewAction extends JDialog {
     private JButton addParamButton;
     private JButton addResultParamButton;
     private JPanel resultParamsContainerPane;
+
+    private ArrayList<ActionParam> actionParams = new ArrayList<>();
+    private ArrayList<ActionParam> resultParams = new ArrayList<>();
 
     public CreateNewAction() {
         setTitle("Create New Action");
@@ -75,6 +80,7 @@ public class CreateNewAction extends JDialog {
             action.setHasReducer(reducerCheckBox.isSelected());
             action.setHasSaga(sagaCheckBox.isSelected());
             action.setHasAPI(APICheckBox.isSelected());
+            action.setParams(actionParams);
             action.create();
             if (resultActionCheckBox.isSelected()) {
                 Action resultAction = new Action(selectedProcess, nameTextField.getText());
@@ -82,6 +88,7 @@ public class CreateNewAction extends JDialog {
                 resultAction.setHasReducer(resultReducerCheckBox.isSelected());
                 resultAction.setHasSaga(resultSagaCheckBox.isSelected());
                 resultAction.setHasAPI(resultAPICheckBox.isSelected());
+                resultAction.setParams(resultParams);
                 resultAction.create();
             }
         } catch (IOException e) {
@@ -102,13 +109,17 @@ public class CreateNewAction extends JDialog {
     }
 
     private void onAddParam() {
-        paramsPane.add(new ActionParamObject().getComponent());
+        ActionParamObject actionParamObject = new ActionParamObject();
+        paramsPane.add(actionParamObject.getComponent());
         paramsPane.revalidate();
+        actionParams.add(new ActionParam(actionParamObject.getNameTextField(), actionParamObject.getTypeTextField()));
     }
 
     private void onAddResultParam() {
-        resultParamsPane.add(new ActionParamObject().getComponent());
+        ActionParamObject actionParamObject = new ActionParamObject();
+        resultParamsPane.add(actionParamObject.getComponent());
         resultParamsPane.revalidate();
+        resultParams.add(new ActionParam(actionParamObject.getNameTextField(), actionParamObject.getTypeTextField()));
     }
 
     public static void main() {

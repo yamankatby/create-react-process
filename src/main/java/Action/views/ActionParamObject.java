@@ -5,10 +5,18 @@ import java.awt.*;
 
 public class ActionParamObject {
     private JPanel contentPane;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField nameTextField;
+    private JTextField typeTextField;
 
     public Component getComponent() {
         return contentPane;
+    }
+
+    public JTextField getNameTextField() {
+        return nameTextField;
+    }
+
+    public JTextField getTypeTextField() {
+        return typeTextField;
     }
 }
