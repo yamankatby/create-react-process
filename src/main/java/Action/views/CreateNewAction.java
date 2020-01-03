@@ -2,27 +2,32 @@ package Action.views;
 
 import Action.models.Action;
 import Process.models.Process;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 
 public class CreateNewAction extends JDialog {
+
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JComboBox<Process> processComboBox;
-    private JTextField actionNameTextField;
+    private JTextField nameTextField;
     private JCheckBox resultActionCheckBox;
     private JCheckBox reducerCheckBox;
     private JCheckBox sagaCheckBox;
     private JCheckBox APICheckBox;
-    private JPanel resultActionOptions;
+    private JPanel resultOptionsPane;
     private JCheckBox resultReducerCheckBox;
     private JCheckBox resultSagaCheckBox;
     private JCheckBox resultAPICheckBox;
+    private JPanel paramsPane;
+    private JPanel resultParamsPane;
+    private JButton addParamButton;
+    private JButton addResultParamButton;
+    private JPanel resultParamsContainerPane;
 
     public CreateNewAction() {
         setTitle("Create New Action");
@@ -32,11 +37,20 @@ public class CreateNewAction extends JDialog {
 
         buttonOK.addActionListener(e -> onOK());
         buttonCancel.addActionListener(e -> onCancel());
-
-        resultActionCheckBox.addChangeListener(this::onResultActionChange);
+        resultActionCheckBox.addChangeListener(e -> onResultActionChange());
 
         Process[] processes = Process.fetchProcesses();
         for (Process process : processes) processComboBox.addItem(process);
+
+        resultOptionsPane.setVisible(false);
+        resultParamsContainerPane.setVisible(false);
+
+        addParamButton.addActionListener(e -> onAddParam());
+        addResultParamButton.addActionListener(e -> onAddResultParam());
+
+        GridLayout gridLayout = new GridLayout(0, 1);
+        paramsPane.setLayout(gridLayout);
+        resultParamsPane.setLayout(gridLayout);
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -57,13 +71,13 @@ public class CreateNewAction extends JDialog {
     private void onOK() {
         try {
             Process selectedProcess = ((Process) processComboBox.getSelectedItem());
-            Action action = new Action(selectedProcess, actionNameTextField.getText());
+            Action action = new Action(selectedProcess, nameTextField.getText());
             action.setHasReducer(reducerCheckBox.isSelected());
             action.setHasSaga(sagaCheckBox.isSelected());
             action.setHasAPI(APICheckBox.isSelected());
             action.create();
             if (resultActionCheckBox.isSelected()) {
-                Action resultAction = new Action(selectedProcess, actionNameTextField.getText());
+                Action resultAction = new Action(selectedProcess, nameTextField.getText());
                 resultAction.setResultAction(true);
                 resultAction.setHasReducer(resultReducerCheckBox.isSelected());
                 resultAction.setHasSaga(resultSagaCheckBox.isSelected());
@@ -82,10 +96,19 @@ public class CreateNewAction extends JDialog {
         dispose();
     }
 
-    private void onResultActionChange(@NotNull ChangeEvent e) {
-        JCheckBox source = (JCheckBox) e.getSource();
-        boolean selected = source.isSelected();
-        resultActionOptions.setVisible(selected);
+    private void onResultActionChange() {
+        resultOptionsPane.setVisible(resultActionCheckBox.isSelected());
+        resultParamsContainerPane.setVisible(resultActionCheckBox.isSelected());
+    }
+
+    private void onAddParam() {
+        paramsPane.add(new ActionParamObject().getComponent());
+        paramsPane.revalidate();
+    }
+
+    private void onAddResultParam() {
+        resultParamsPane.add(new ActionParamObject().getComponent());
+        resultParamsPane.revalidate();
     }
 
     public static void main() {
