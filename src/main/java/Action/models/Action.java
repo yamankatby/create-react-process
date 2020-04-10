@@ -114,8 +114,10 @@ public class Action {
 
         String actionInterface = params.size() > 0 ? name.pascalCase + "Action" : isResultAction ? "AppResultAction" : "AppAction";
         template = template.replace("$ActionInterface", actionInterface);
-        if (actionInterface.equals("AppResultAction")) template = "import { AppResultAction } from '';\n" + template;
-        else if (actionInterface.equals("AppAction")) template = "import { AppAction } from '';\n" + template;
+        if (actionInterface.equals("AppResultAction"))
+            template = "import { AppResultAction } from '../../../config/store/types';\n" + template;
+        else if (actionInterface.equals("AppAction"))
+            template = "import { AppAction } from '../../../config/store/types';\n" + template;
         else template = "import { " + name.pascalCase + "Action } from './types';\n" + template;
 
         StringBuilder paramsWithTypes = new StringBuilder(isResultAction ? "hasError: boolean, " : "");
@@ -158,7 +160,7 @@ public class Action {
 
         if (params.size() == 0) {
             template = template.replace("action: $ActionInterface", "");
-            template = template.replace("\nconst { $params } = action;", "");
+            template = template.replaceAll("\\n\\tconst\\s\\{\\s\\$params\\s}\\s=\\saction;", "");
         } else {
             process.sagas.insertAnImport("import { " + name.pascalCase + "Action" + " } from './types';");
             template = template.replace("$ActionInterface", name.pascalCase + "Action");

@@ -65,7 +65,8 @@ public class Process {
         apis.createIfNotExists(template);
     }
 
-    public static void createProcess(String name) throws IOException {
+    @NotNull
+    public static Process createProcess(String name) throws IOException {
         Process process = new Process(name);
         process.createViewFileIfNotExists();
         process.createTypesFileIfNotExists();
@@ -73,6 +74,7 @@ public class Process {
         process.createReducersFileIfNotExists();
         process.createSagasFileIfNotExists();
         process.createAPIsFileIfNotExists();
+        return process;
     }
 
     @NotNull

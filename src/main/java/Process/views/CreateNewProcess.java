@@ -1,5 +1,6 @@
 package Process.views;
 
+import Action.models.Action;
 import Process.models.Process;
 
 import javax.swing.*;
@@ -56,7 +57,10 @@ public class CreateNewProcess extends JDialog {
         String[] names = processesNames.getText().split("\\s*[,;]\\s*");
         for (String name : names) {
             try {
-                Process.createProcess(name);
+                Process process = Process.createProcess(name);
+                Action action = new Action(process, "clear " + name);
+                action.setHasReducer(true);
+                action.create();
             } catch (IOException e) {
                 e.printStackTrace();
             }
