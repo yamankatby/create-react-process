@@ -14,7 +14,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
-        <toolWindow id="React Manager" anchor="right" factoryClass="manager.Manager"/>
+        <toolWindow id="React Manager" anchor="right" icon="AllIcons.General.Modified"
+                    factoryClass="manager.ManagerFactory"/>
     </extensions>
 
     <actions>

@@ -1,18 +1,25 @@
 package manager;
 
-import com.intellij.lang.Language;
+import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.ModuleRootManager;
 import com.intellij.openapi.wm.ToolWindow;
-import com.intellij.openapi.wm.ToolWindowFactory;
-import com.intellij.psi.PsiDirectory;
-import com.intellij.psi.PsiFileFactory;
-import org.jetbrains.annotations.NotNull;
 
-public class Manager implements ToolWindowFactory {
-    @Override
-    public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
-        Language ts = Language.findLanguageByID("ts");
-        assert ts != null;
-        PsiFileFactory.getInstance(project).createFileFromText(ts, "import");
+import javax.swing.*;
+import java.io.File;
+
+public class Manager {
+    private JPanel contentPane;
+
+    private String[] directories;
+
+    public JPanel getContentPane() {
+        return contentPane;
+    }
+
+    public Manager(Project project, ToolWindow toolWindow) {
+        String rootPath = ModuleRootManager.getInstance(ModuleManager.getInstance(project).getModules()[0]).getContentRoots()[0].getPath();
+        File file = new File(rootPath.concat("/src/processes/"));
+        String[] _directories = file.list((dir, name) -> new File(dir, name).isDirectory());
     }
 }

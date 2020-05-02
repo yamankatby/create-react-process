@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c0f5706-c6be-495e-9762-a4e665c56861" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.swazer.crp/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.swazer.crp/src/main/java/manager/Manager.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.swazer.crp/src/main/java/manager/ManagerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.swazer.crp/src/main/java/manager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.swazer.crp/src/main/java/manager/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.swazer.crp/src/main/java/manager/icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.swazer.crp/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.swazer.crp/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +133,7 @@
       <workItem from="1588375240178" duration="154000" />
       <workItem from="1588375589265" duration="2000" />
       <workItem from="1588375660214" duration="97000" />
+      <workItem from="1588417725310" duration="1493000" />
     </task>
     <servers />
   </component>
@@ -153,6 +157,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="789" y="370" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1588375752274" />
+    <state x="986" y="367" width="588" height="729" key="find.popup" timestamp="1588419072585">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="986" y="367" width="588" height="729" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1588419072585" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/create_react_process$Plugin.ic" NAME="Plugin Coverage Results" MODIFIED="1577709161416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
